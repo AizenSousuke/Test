@@ -1,0 +1,814 @@
+T01_Launch()
+{
+
+	lr_start_transaction("T01_Launch");
+
+	web_set_sockets_option("SSL_VERSION", "TLS1.2");
+
+	web_add_cookie("SRCHUID=V=2&GUID=F29DCFA15F0844388051748AFF88BA6C&dmnchg=1; DOMAIN=iecvlist.microsoft.com");
+
+	web_add_cookie("SRCHD=AF=NOFORM; DOMAIN=iecvlist.microsoft.com");
+
+	web_add_cookie("MC1=GUID=b3fdf1e102534a0fbb57491ab8fcca46&HASH=b3fd&LV=201909&V=4&LU=1568949611444; DOMAIN=iecvlist.microsoft.com");
+
+	web_add_cookie("MUID=10BC21C89AC665AD0CC22C129B0D64D8; DOMAIN=iecvlist.microsoft.com");
+
+	web_add_cookie("SRCHUSR=DOB=20190917; DOMAIN=iecvlist.microsoft.com");
+
+	web_add_header("UA-CPU", 
+		"AMD64");
+
+	web_url("iecompatviewlist.xml", 
+		"URL=https://iecvlist.microsoft.com/IE11/1478281996/iecompatviewlist.xml", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/xml", 
+		"Referer=", 
+		"Snapshot=t14.inf", 
+		"Mode=HTML", 
+		LAST);
+
+	web_add_cookie("__cfduid=ddb97a1e17732a3de8565ae91abd838d11569316297; DOMAIN=uat.mlaw.gov.sg");
+
+	web_url("enquiry", 
+		"URL=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=", 
+		"Snapshot=t15.inf", 
+		"Mode=HTML", 
+		LAST);
+
+	web_concurrent_start(NULL);
+
+	web_url("bg_top-nav-bullet.gif", 
+		"URL=https://uat.mlaw.gov.sg/eservices/enquiry/images/bg_top-nav-bullet.gif", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t16.inf", 
+		LAST);
+
+	web_url("ico-select.gif", 
+		"URL=https://uat.mlaw.gov.sg/eservices/enquiry/images/ico-select.gif", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t17.inf", 
+		LAST);
+
+	web_url("img-landscape-enquiry.jpg", 
+		"URL=https://uat.mlaw.gov.sg/eservices/enquiry/images/img-landscape-enquiry.jpg", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/jpeg", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t18.inf", 
+		LAST);
+
+	web_url("WebResource.axd", 
+		"URL=https://uat.mlaw.gov.sg/eservices/enquiry/WebResource.axd?d=2CCH-K49TzVj1qgXq2jfSBglEAObE9nHAZkGNRerWsVJuOngSypvqZrti-TOrCTDrki36TKFYhPNXgqzQsqGCls436x0TqDx2SnzVFONETk1&t=636396543000000000", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/x-javascript", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t19.inf", 
+		LAST);
+
+	web_url("WebResource.axd_2", 
+		"URL=https://uat.mlaw.gov.sg/eservices/enquiry/WebResource.axd?d=E_esNa-4wpPDFh6mV1JetxXODVAI6stSFAtFqzQIB7fgGXsrGt8VTnJoEzKqHqySqwnhanyuTEM0DOFNMaOoaAywjPCpNMOS-_WCL8bF2iE1&t=636396543000000000", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/x-javascript", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t20.inf", 
+		LAST);
+
+	web_concurrent_end(NULL);
+
+	lr_end_transaction("T01_Launch",LR_AUTO);
+
+	lr_think_time(17);
+
+	lr_start_transaction("T02_Enquire");
+
+	web_submit_data("enquiry_2", 
+		"Action=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Method=POST", 
+		"TargetFrame=", 
+		"RecContentType=text/html", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t21.inf", 
+		"Mode=HTML", 
+		ITEMDATA, 
+		"Name=__EVENTTARGET", "Value=ddlcategory", ENDITEM, 
+		"Name=__EVENTARGUMENT", "Value=", ENDITEM, 
+		"Name=__LASTFOCUS", "Value=", ENDITEM, 
+		"Name=__VIEWSTATE", "Value=3mHpdzdgHXITRO76YPzs3fj/wH85omV7XEfuOyBZlc8/i6WTYwm0s8AGMMCi40b/UbUtGOLl7VdUSDYATC2nobHy3p38UH2vbYSh4AbkEsCVvNT3jon0Gyi9LO+ZmdRDFxk0Cvl/Yux7vkoyjkCCLyxb0uOC3/lLifBhY5KJLENSeAlrw2wGy5Uv+YD7IlPNUlPYC2Tc9I6CuX42D8QvwuyUBk064VdemRluQ4aSySgQOgckLzR2McMVVnNf+oBtQjVtwxia5W2Dp75R4QrSSC124rcr0ZIvmS3JXi4KTXcHXlTRWfhoa/PUSHJhIWrKk8gTbTHfQ0UnDqD538I202B0vSepE55PguaRvNpS+6ouScoeMI3ZiiCLCUGYeSjFAcC+i5D7PRVMtc2fh97wj+vqf6yzxC5yMW3ZXn2c3dbMd0kKsuga9sruj8mYmJfEduBe3GCAIh/jm+"
+		"To8KMFBCvXpIWZlDLJmlGtS+sswnYfPQdIF1Aq8Xk2ubafifIBJFPDR8bK3STcChEPQcl/j2VOrxfVjWhAaydpauIKdRYo1EmrocK2PPDYtqUEbfz61npUrdNlaFP2e0czdRJpPY9l9gsg6Ji6fQfse4zXRvyu8AHFd5KDxXyxpHG+BAd3TqzidsS0dWhcaFqnECOm8XVuRqisvxE6tCvrZKhtbx8V0kGoeW76xGmf/faTtwr+Wblu2x+08qEya5NBqLRRXELYdWHfb9C34/FHioZUidpPMX8Yb9gENdOblgHpmKFdza5Wt69AM3Y4TS3duK1GkMuBjJ94QaNRC40wu0BO5282N8FNSsUutSrDHgbtfzHNSeh7wb9CVe962YQqFg0gR3irwWYcXFGRwbjhZFKD18lwphzpwosfoV3VUWhF7q7HlDun5b+gOU0yX2CAt62yd1OEsuTB5srcF/"
+		"GjenCe5XQlHHieNg5yUX9YidL1b6PzJQwpLn09DUWcahSY9yAayIVJUmzd9mF9m7CM/rwae9BmOb/od1BZFYE2YXrW/ku7oTKof6elxGQV7CwKXT4DqY8wj/+kpGTmFecqb25i5i7869THJF42iuI7UpFlu/AYKdzKxyclFqD9616v2R28YppWT7uuk2rLfd8qYmOBe7Mi9eBwRdyecgXSqhxmIKuxi0CBQlZm9JHKSzFKK3er5aMr0kkVyyY25cOUhfbAKqBYxQEgjtM48TvzcEdRFEQyH1cbAllH+sMjXy5bKdYktsCoOzUQOBPTLL9qzX2pDQmPf2SPk8k3JgYuET9DRf+hK40CDiP/OXe3fXsYMud0Khll6EZ0jsm+5y0FNXTV5Qkk9zwUOE4lb5NtobWWoXrbjOpjR6og2Kv9r/tuMBfb8awSqsgO2PuvKtk7+atsE3UvNrtfToO6SYJa+"
+		"nLWuNb2SX60KKoBbmWZQkOqReEydFqhUX3n922GP+355KljMdffw9qYfbhNzD2WZMgyCbS1U12LLtCTtIg4gJbWv+Y0go3Q3UEfafsT/h05bGYcIYWbpKBpNzqnkt/kkGA/M4O3/DXQJUScTfzFRoRwm3IBGxVGOY75vkDuVRCA6R6V2LtuX1l+wiMsoI5FwFRdvZWXdZVfO4Z6zmAs0y7G5xGjTlX2hYb14smB0NS5G/PV4FMf99kBywWQbbOHr+PYW4ZsAWbMSCKwQwJUYpmPJR5fLoVLjZx7dpBfVzOP7SBYNtXoOjaXbvbM2ny00JL7QM/l9ApfgBjZZXWcQ+gTIrZpdVh0ClgVeK5FJ9U/rll1qLduvwc9n0t3EFCa3GadKTxV2sKJMZZzcoQ6+hEbXuqqeaNHGG0lfchrsHxCvMyxDpTF1hU1TnDGva2NN68i9Ih+", ENDITEM, 
+		"Name=__VIEWSTATEGENERATOR", "Value=2BB1B816", ENDITEM, 
+		"Name=__SCROLLPOSITIONX", "Value=0", ENDITEM, 
+		"Name=__SCROLLPOSITIONY", "Value=355", ENDITEM, 
+		"Name=__VIEWSTATEENCRYPTED", "Value=", ENDITEM, 
+		"Name=__EVENTVALIDATION", "Value=evk5Ydq+T+U3+N0/Lhc7as9QgQkQP2FNPpbXLI6fg2q6c/UnZpjhsTr6sAfbIsB5ba2tkVygU0aW7M5veWEZ21aFZ07TZ19i+HS6Ccw9baaRHVdqWYGzq3Xv3BbUxlNr9nQWsuVFg4bqGsjTumKHlceQwNx1UfAxSKm2czs3U7w5uc/RHmmIQQXFHf2T+IHobHE2+roLBGlsKjLnh6WimTQ/75EuJf7472ZTt/SkeBBOyzlPg/CIAlq/VPYgBN/4pWoPPCKFDPH26uuhtj7VY92cEJB7rluG1GZ0HBL9M1quKzztCXXXr5Na1pXKDUvRoit7OLdxvX5NU/f1VVZA9h8pvMYJHdQtSHdAJT4cV7Qu1jZ78FaHmxw9fL9VbPO5I+84NKH9tjGl1dh7jJfuh3gdn8xO8ZWkROYLpyiwRMuFAyRkoIhnT2Ocsd0FrkmK", ENDITEM, 
+		"Name=ddlcategory", "Value=3", ENDITEM, 
+		"Name=ddlsubcategory", "Value=0", ENDITEM, 
+		LAST);
+
+	web_add_header("UA-CPU", 
+		"AMD64");
+
+	web_url("gencssites.xml", 
+		"URL=http://pac.ncs.com.sg/gencssites.xml", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/xml", 
+		"Referer=", 
+		"Snapshot=t22.inf", 
+		"Mode=HTML", 
+		LAST);
+
+	web_submit_data("enquiry_3", 
+		"Action=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Method=POST", 
+		"TargetFrame=", 
+		"RecContentType=text/html", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t23.inf", 
+		"Mode=HTML", 
+		ITEMDATA, 
+		"Name=__EVENTTARGET", "Value=ddlsubcategory", ENDITEM, 
+		"Name=__EVENTARGUMENT", "Value=", ENDITEM, 
+		"Name=__LASTFOCUS", "Value=", ENDITEM, 
+		"Name=__VIEWSTATE", "Value=a0L/MA1xyFTJa0UBw2fE4Hu+zc9j5tY29hubW3Vjf63pCcIWxnEonxPQF6AvZTEV3CZRg9vttHHMzImwgiEM+erengir2JkhSENMNNM1QqR6nMPMkg0YVrvVm6EJw0/BBP8gBedDSWLneCqXwB8ENwnEgGsqSU71gCqhTEqOjR9+Y/DL+/01R090LybLrh+VCWlf1Ug4rDTVzYRBEJKOqS4HMhoWWWMRPs7CAY5jB6QmoaYkPCNQLuYZatsLu7YZCHLeaNusqxUPDg19o7TIHkiA/57fYcewrUh5eSza2lbeUawaVUJQI19QqC9JYTZHbQ5Tn/SxTXKAbJeGTKnn+uPqiexurLYeAxK1auaOrOyVivEUUSrtdm6Ck3BDqycDVj1PyJFU4XX4wt4EXQZCwY1mG9YyrHjSA++7Frsi7+G7uDaRNVgO9sfvtAkb3qZswrMY+BvNEvv/o6BWc3gcgS+"
+		"kK4w5GN1lpPYn/rHPfpKhFP2QhH+cD1uBY6fiLcY8w5O066Hhwh7Dgg6i7uZeXcOsL653CQ0/Lvf3jXeWSQZgqHCMMlfLeobgmYgpHFzYL4V+hIn2HJ3SgBWblNXwjpvj0g67t/ie0wVJg34pzj2Z+F9GpBsRm/lE4N/nLAxJBpbSvR25CdkTs2VIHz26vRCOhKeDmTxtGQalVMperqz07n2GhzC5mMGCv+q2kKCUqSdeJREeCDiAeMAyiLBbHuzk+2ylcruszbRd3peZqEDYgY+9iTVY1yWPLjdZbt3gtO2dZszVaZkXvM/9wa1OxSv3Xu+Uho1sFzR7tadeRrslKpjl7hCWohg6cfj/by/8wnQmVRnU71pJLyMtZu8hosQlRLWNEn3idom28B44wwddl9y5OAunh/bMDFY4rZ/xTdaH/fv4v+gnEtyQZwqTIAgJnx8TUk3YGWiLK+"
+		"NeGUuXK90c2SUfHmoYGboKeYhUId65YjUg47F0OJfUs28f5okQYL9fxiKenPvBshVaO5pA29De541LroM5c51uFvHBPMI0r5BcTdJOOj/tbEsQ24iLlCwCpLlLRmpX8/iYTzb9Sm2rQ2X7dw9MMdSHb9aGI0jxS3Q74CmGcisec9tKWN7LarxBiUJ5b+DG8bdOu9I01zLvF3raqEAJnkYki1kF1Zz5s0Do0LWVI8nUXXiyrwVt1KAJO90bs7O0ORrmenScp1QND23mBGJEUm5khC0NXytMZUiZbecWM2NeGNo6zzA/shodbTZck3+QouxBYoprn7KKcXG2vCBQ/rr22zDCUUnSre8rlXQk4h9bMmn10KGPj7tZI+0q1jCeFBLPGzwnm+h2/FHeQv1bVZAc8nBRm5YhvhkFLogWOTl/eFwkclWqLIDZxqu0Xd+WcJhLsKUblRd/V3ksHnZCNBm+"
+		"IcoCJuj9T3PFKdH1OnFZu9xxVUyGa0jvxdlbtwY9zQBB0Woe1NtVc5cQ6REb7KH2EyWAhL72v5HbZ1q6wPUOCT6WOf3yqCQQNjy1/3kjwAdLdFq3NGq7l0GfEenQ2jltOcKwJ6fQuIqtJjIR3W5Fr7Paql7P5J6/Pr0/NkOClru+3oenZRDVFQOqvgqPjRedDIbh3rZlRKxxsUpUDOWPxUscC2AXdQ/9v2I33obVuABX5uHfV+HVg1ZMZ84TvQZhy6IbPua79XROpLXnUm3ocSZ2EsdjLGvkM/dlsRkWycXfCGQXeq5OcTKocaWlV6NPArLEdYvbYKPlA/Xsd8l4e2qzYY4XQyboOgxm5W6/gLTPDoE3oyKWYuRC6M0PyQEU/Ij/yXhbmZLQ9y8za3fgfGAir1SRJhy6Brx0/HOlLrBOHMu0nA1EmbEbZC8ZQzjHvC1Laudp6SPStpLvGvIZPwnMI4HQ/"
+		"upsjhs9KMocnhWb2NzQeOoIucaDBeoCssrzp7NnzWLPU8PG4jUG21LBoPcL65HPvHRqxEYqdFU6G1SJKQwihymFIc4dVMo3warwHMG3ilNRlSQZi1+e2pKTPol5mxBYHZmux9QaTmdAsu+oZDZFT3g7/RQ/VNUTp0Zv7VPR", ENDITEM, 
+		"Name=__VIEWSTATEGENERATOR", "Value=2BB1B816", ENDITEM, 
+		"Name=__SCROLLPOSITIONX", "Value=0", ENDITEM, 
+		"Name=__SCROLLPOSITIONY", "Value=355", ENDITEM, 
+		"Name=__VIEWSTATEENCRYPTED", "Value=", ENDITEM, 
+		"Name=__EVENTVALIDATION", "Value=OWRHSUKkctnP2ZSokoHlo/0vTco5nd1ljMeviJG4fO36P1vnzX2ItdHUOLKNBg319HgR+T7hJ4S1m5D87PhsaweW1hJ9d1pKkhThjQYiPnZiLcVQo1U8PpkwEIA+OBlVQ1yCIQuL2G7uakS3Qveu3KXpaKxMMD4chZILUtthSxxV17d2m5WZveKmpDjzuUhMF0Aqu3NSLpaqrPxAqjdjrNm8JZKy0C3czHa2FpChKmaf62RfLrnwpa96d6F0tMxXZ0o/xKqNzNNxdlQVSRE1lzPvmYIntKWglqjgmDBYiZANe3kDrnE1nCjDWGTTuoy0ohUh1ZvXsXyu3iUv/vpuXSqDkoEBfrVRfNdLmmq9gy4gWD7n2N8Isu/CNqtsYrfJNRY4+SVrg9N5+5C3v6zmM1HC07IaOs8AuGVLioVf+"
+		"JcHXdtwisjwpBEfSh7VClSxHiixwnXBrz4sXdbAkMDfVZfSUoCjqzdJp699YRj275hd8YoSOlm5qLVYnIzM3t6syKrZxH0mGHhAQcFXCo/w/g==", ENDITEM, 
+		"Name=ddlcategory", "Value=3", ENDITEM, 
+		"Name=ddlsubcategory", "Value=ROM1", ENDITEM, 
+		LAST);
+
+	lr_think_time(19);
+
+	web_submit_data("enquiry_4", 
+		"Action=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Method=POST", 
+		"TargetFrame=", 
+		"RecContentType=text/html", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t24.inf", 
+		"Mode=HTML", 
+		ITEMDATA, 
+		"Name=__EVENTTARGET", "Value=", ENDITEM, 
+		"Name=__EVENTARGUMENT", "Value=", ENDITEM, 
+		"Name=__LASTFOCUS", "Value=", ENDITEM, 
+		"Name=__VIEWSTATE", "Value=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", ENDITEM, 
+		"Name=__VIEWSTATEGENERATOR", "Value=2BB1B816", ENDITEM, 
+		"Name=__SCROLLPOSITIONX", "Value=0", ENDITEM, 
+		"Name=__SCROLLPOSITIONY", "Value=355", ENDITEM, 
+		"Name=__VIEWSTATEENCRYPTED", "Value=", ENDITEM, 
+		"Name=__EVENTVALIDATION", "Value=wJsp94JNNGE40gcDoY7aU0xcwhOSwsssj0ItvbzuALnA/lPlRisHs9zGkwt39XBk7bCi5n73Gu8pg5uuYDvoK7KaVLk8U0OnUVw5ItXA76euJ7dUpnQdXoa+e5L1HhFyNdgPH6bedaddUncBI/UEk0EUwxblVIZwxz34frFtf1O23yDy0HD6DE6zxeqQfBNYHqIZOyn7Eq9abZjMX8XLn0xD8L0tSJYf6V3AIlPT7YbTfit9W/JCui3ZYFUEt57uCS+gZYTnizBu0VFKzIDmhwUuA8nYA/4sopMU76BKq74/pZsrClnDkKhCKcBuyOdg05AFPDTFHe9Iw2ogFOEIme6x4nXT++1UaN7T6nmyphhpHHWaPZnzPS5EsMdm9/Zoyd0Sv9p45qCCu+Zjj3NYNBNlGXQmKiNwsRtE/CsB8DINOqSoQUbaj1KQBPtQ7L2Gbqt9dkkf7Feacd1k/"
+		"SpihyRgPxgPsrDPoNn6YYxC3z3xaunJgjD21aOSFpNfRdAvqLA8ID/cAk5ryDEEZS3lOQ==", ENDITEM, 
+		"Name=ddlcategory", "Value=3", ENDITEM, 
+		"Name=ddlsubcategory", "Value=ROM1", ENDITEM, 
+		"Name=btnContinue1", "Value=Continue", ENDITEM, 
+		LAST);
+
+	web_url("info-icon.png", 
+		"URL=https://uat.mlaw.gov.sg/eservices/enquiry/images/info-icon.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t25.inf", 
+		LAST);
+
+	lr_end_transaction("T02_Enquire",LR_AUTO);
+
+	lr_think_time(55);
+
+	lr_start_transaction("T03_FillName");
+
+	web_submit_data("enquiry_5", 
+		"Action=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Method=POST", 
+		"TargetFrame=", 
+		"RecContentType=text/html", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t26.inf", 
+		"Mode=HTML", 
+		ITEMDATA, 
+		"Name=__EVENTTARGET", "Value=", ENDITEM, 
+		"Name=__EVENTARGUMENT", "Value=", ENDITEM, 
+		"Name=__VIEWSTATE", "Value=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", ENDITEM, 
+		"Name=__VIEWSTATEGENERATOR", "Value=2BB1B816", ENDITEM, 
+		"Name=__SCROLLPOSITIONX", "Value=0", ENDITEM, 
+		"Name=__SCROLLPOSITIONY", "Value=491", ENDITEM, 
+		"Name=__VIEWSTATEENCRYPTED", "Value=", ENDITEM, 
+		"Name=__EVENTVALIDATION", "Value=OP1oKooPiQQV5HLRvZGOObDvlATbIph1Z4foJnPmMCcFKW/AKqioENE/n79FFwpiD4YUZwp6Zc+aWrM36kMlU877YuBNBxda0vrkc8Uftmygq+loTiA3HwSDrCE8DGQYCiDE3yNPfgkq6H0v0vhl9FhhurEnYNOAgNeuxonoU1pM/fB8BixSi6No8bzzLxdXDvMs0drNEWT+hdxHL6uWYSzRM930rfRL6OSBzJ+bz/vIqnjRmVvNtVCHz0GPzhJyud+oUsu5ptHrmhbgQHJiXZ51Rs+T4q7NMRoMvnnkVzZb2IuhM9QXDdAQuC1GbJ0cUim+r7Y8b0e2RcGfPzdGd6oxDiXEx65kskVH5gQYrhlrKW66z+0kNHnLXAKM9cyRLBaTfTYQbyMtX7b5qL9cGiVZDAn6naWcpF0UhRVsgwOvYD02zZJRKKMOOIl7TyfOucVLZoFXxFfw5JMQlnBvfw"
+		"==", ENDITEM, 
+		"Name=txtAnswerCategory", "Value=Registry of Moneylenders", ENDITEM, 
+		"Name=txtAnswerSubCategory", "Value=Application for Changes to Business", ENDITEM, 
+		"Name=ddlsalutation", "Value=273670000", ENDITEM, 
+		"Name=txtfullname", "Value=TESTER", ENDITEM, 
+		"Name=txtmobilenumber", "Value=12345678", ENDITEM, 
+		"Name=txtemail", "Value=asdf@test.com", ENDITEM, 
+		"Name=btnContinue2", "Value=Continue", ENDITEM, 
+		LAST);
+
+	lr_end_transaction("T03_FillName",LR_AUTO);
+
+	lr_think_time(26);
+
+	lr_start_transaction("T04_FillIdentification");
+
+	web_submit_data("enquiry_6", 
+		"Action=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Method=POST", 
+		"TargetFrame=", 
+		"RecContentType=text/html", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t27.inf", 
+		"Mode=HTML", 
+		ITEMDATA, 
+		"Name=__EVENTTARGET", "Value=ddlidtype", ENDITEM, 
+		"Name=__EVENTARGUMENT", "Value=", ENDITEM, 
+		"Name=__LASTFOCUS", "Value=", ENDITEM, 
+		"Name=__VIEWSTATE", "Value=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", ENDITEM, 
+		"Name=__VIEWSTATEGENERATOR", "Value=2BB1B816", ENDITEM, 
+		"Name=__SCROLLPOSITIONX", "Value=0", ENDITEM, 
+		"Name=__SCROLLPOSITIONY", "Value=627", ENDITEM, 
+		"Name=__VIEWSTATEENCRYPTED", "Value=", ENDITEM, 
+		"Name=__EVENTVALIDATION", "Value=FqDpdQQiGfoHSUOygbhJM+jo0w+Gz19wLfXOocnX260dPP6X5bJep/hrL1U417wLTZOX4dzoyETzhvugnzrmi5rGwSiay9n5CdH86vBk0HN55kKCyBouGllF6+uNX+62+uKRhhzmqgF2xLwC3hGzhaRFzjUToOzPvTvABWBnAQaypidPz84D+8etWiHdP7NlPJvhP8jxGub7QYbhwlqfTVT6ZAiHgaqcMxe7cwGsshuJ+6lJWvg7H00Te+VvJjM6M71vYrAUReA3K85POEoWzXxHO2OPSPGXOZ3gomXTDT0pbgrSJG0PCKpGVYCuwGwmn4QYpnQAHS6WDpMvT0MPdUXSW6XLfJ69RRuf/NzYqMeGz4zxDCi41JDuzxguYntDZlqErl/3ZVfyjiZQ2dHNKfgcJ9KjM2VVE3W4MogJ9BwuDC3/9V9gdhMF7nx56M1qGOqrWqpotbG/8nyeDs27lw"
+		"==", ENDITEM, 
+		"Name=txtAnswerCategory", "Value=Registry of Moneylenders", ENDITEM, 
+		"Name=txtAnswerSubCategory", "Value=Application for Changes to Business", ENDITEM, 
+		"Name=txtAnswerSalutation", "Value=Mr", ENDITEM, 
+		"Name=txtAnswerFullName", "Value=TESTER", ENDITEM, 
+		"Name=txtAnswerContactNumber", "Value=12345678", ENDITEM, 
+		"Name=txtAnswerEmail", "Value=asdf@test.com", ENDITEM, 
+		"Name=ddlidtype", "Value=273670000", ENDITEM, 
+		LAST);
+
+	lr_think_time(9);
+
+	web_submit_data("enquiry_7", 
+		"Action=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Method=POST", 
+		"TargetFrame=", 
+		"RecContentType=text/html", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t28.inf", 
+		"Mode=HTML", 
+		ITEMDATA, 
+		"Name=__EVENTTARGET", "Value=", ENDITEM, 
+		"Name=__EVENTARGUMENT", "Value=", ENDITEM, 
+		"Name=__LASTFOCUS", "Value=", ENDITEM, 
+		"Name=__VIEWSTATE", "Value=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", ENDITEM, 
+		"Name=__VIEWSTATEGENERATOR", "Value=2BB1B816", ENDITEM, 
+		"Name=__SCROLLPOSITIONX", "Value=0", ENDITEM, 
+		"Name=__SCROLLPOSITIONY", "Value=763", ENDITEM, 
+		"Name=__VIEWSTATEENCRYPTED", "Value=", ENDITEM, 
+		"Name=__EVENTVALIDATION", "Value=FGRcmPONzo2QTV4eIgIeROiQDcRXNv3k7I/PU7717/Xr1g8KuaTubY7NM9Lou9O9wdb5UEEODW8DgGMRQr0OnjwADQTq4r0UxDYaANDfWlzpArm/2N6XKkr7sf5dcOaQrvIr1eVhyeqFeTrdqFcosAhpeK5ZXZODYheCd/tkK3h/JS4JAEWvuy4x2F1pRGsZ1RrpbLELj2n8/Tb7ERc5QUuTfF8CGvsPgxmvFsEU7LC/ZRyLJI7oWnQYN7xV1IE2puUjNQe21R5WpNN4z60D+FiYjgKAkT7j5fAajas0Zdm9vM7QvvJRa6jOywyaj3JMFU+01Ph3v89heuJs8pioXSwR8O1B3BVi0uWfXWTcSoa9uSbXYffdFqbPfVNaDtu8hvoUWO24Fwb63qZ16QIPYRCslQcGT9jV8qEwHvs5yIyMTns3y/"
+		"yv6d2XIAxWlUMuoMaWdTmu0D9AGR8cKVSH63go2p4ifzKGaZaBnb0tVNk=", ENDITEM, 
+		"Name=txtAnswerCategory", "Value=Registry of Moneylenders", ENDITEM, 
+		"Name=txtAnswerSubCategory", "Value=Application for Changes to Business", ENDITEM, 
+		"Name=txtAnswerSalutation", "Value=Mr", ENDITEM, 
+		"Name=txtAnswerFullName", "Value=TESTER", ENDITEM, 
+		"Name=txtAnswerContactNumber", "Value=12345678", ENDITEM, 
+		"Name=txtAnswerEmail", "Value=asdf@test.com", ENDITEM, 
+		"Name=ddlidtype", "Value=273670000", ENDITEM, 
+		"Name=txtNRIC", "Value=S1234567D", ENDITEM, 
+		"Name=btnContinue3", "Value=Continue", ENDITEM, 
+		LAST);
+
+	web_url("captcha.JPG", 
+		"URL=https://uat.mlaw.gov.sg/eservices/enquiry/images/captcha.JPG", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/jpeg", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t29.inf", 
+		LAST);
+
+	lr_end_transaction("T04_FillIdentification",LR_AUTO);
+
+	lr_start_transaction("T05_FillEnquiry");
+
+	web_submit_data("enquiry_8", 
+		"Action=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Method=POST", 
+		"EncType=multipart/form-data", 
+		"TargetFrame=", 
+		"RecContentType=text/html", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/enquiry/", 
+		"Snapshot=t30.inf", 
+		"Mode=HTML", 
+		ITEMDATA, 
+		"Name=__EVENTTARGET", "Value=", ENDITEM, 
+		"Name=__EVENTARGUMENT", "Value=", ENDITEM, 
+		"Name=__VIEWSTATE", "Value=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", ENDITEM, 
+		"Name=__VIEWSTATEGENERATOR", "Value=2BB1B816", ENDITEM, 
+		"Name=__SCROLLPOSITIONX", "Value=0", ENDITEM, 
+		"Name=__SCROLLPOSITIONY", "Value=1461", ENDITEM, 
+		"Name=__VIEWSTATEENCRYPTED", "Value=", ENDITEM, 
+		"Name=__EVENTVALIDATION", "Value=P3Itd5shvfBtIGQFsThFeQ1MYwT/9+Bgh+bqpUV2Ipc1mvC2CmhG2p3NZXUgBZ8NFXRky6EGfl39zTvkLDXYGMy0eErW6EzrHvlKM+7wmpQslGDLkKYiBr8P1UrJkCaZBZK4UfZYbeyHc1A++hqVXf+1EYTWk7cCLL37YnkvMpOceENPNpOqLKdM8HOSMW2aOvlMq/gjpHmnNQyyyqJk5YdzeaaLrIi1K99dFAhecsPH0VbD0MSTxYliA3LpBzJpzVpK8Zs95UmuaDv4ufyGwbRt2l5NOtbmBzKvZB2FS5gW4w4YBWak/N0NKbgogG4stQPjrn6rke0m7KERDAfOYNukwtEM7XhSWXCS+5VpmaTaXgC0a0TA/DceryLUkhIYaYvOa8K+ueqkSuqI8c6BJ3KXPOgnTXTI8MTOMNKDMk8YuINlN3ARP39NQE6n0OrQKxuONRVuwBUiB4Dhvy/"
+		"8IEkvdn9JK0V5TJ5HMqjxcWI=", ENDITEM, 
+		"Name=txtAnswerCategory", "Value=Registry of Moneylenders", ENDITEM, 
+		"Name=txtAnswerSubCategory", "Value=Application for Changes to Business", ENDITEM, 
+		"Name=txtAnswerSalutation", "Value=Mr", ENDITEM, 
+		"Name=txtAnswerFullName", "Value=TESTER", ENDITEM, 
+		"Name=txtAnswerContactNumber", "Value=12345678", ENDITEM, 
+		"Name=txtAnswerEmail", "Value=asdf@test.com", ENDITEM, 
+		"Name=txtAnswerIdType", "Value=NRIC (Pink)", ENDITEM, 
+		"Name=txtAnswerNRIC", "Value=S1234567D", ENDITEM, 
+		"Name=txtQuery", "Value=bla bla bla", ENDITEM, 
+		"Name=fileUpload1", "Value=", "File=Yes", ENDITEM, 
+		"Name=hdnIsRemove", "Value=TRUE", ENDITEM, 
+		"Name=hdnFileName", "Value=", ENDITEM, 
+		"Name=myhiddenField", "Value=2516c0b3-8260-4203-baa4-26af6c4d4935", ENDITEM, 
+		"Name=btnsubmit", "Value=Submit", ENDITEM, 
+		LAST);
+
+	web_add_cookie("__cfduid=ddb97a1e17732a3de8565ae91abd838d11569316297; DOMAIN=www.mlaw.gov.sg");
+
+	lr_end_transaction("T05_FillEnquiry",LR_AUTO);
+
+	lr_start_transaction("T06_SubmitEnquiry");
+
+	web_url("logo.png", 
+		"URL=https://www.mlaw.gov.sg/", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=", 
+		"Snapshot=t31.inf", 
+		"Mode=HTML", 
+		LAST);
+
+	web_concurrent_start(NULL);
+
+	web_url("satellite-597fff5164746d2bd8008ea3.js", 
+		"URL=https://assets.adobedtm.com/a63ef04a8a06d4763abe9b28a8d967e7e749d199/scripts/satellite-597fff5164746d2bd8008ea3.js", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/x-javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t32.inf", 
+		LAST);
+
+	web_url("bg_page.gif", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_page.gif", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t33.inf", 
+		LAST);
+
+	web_url("s-code-contents-e955f87a74cd9baabe4f7178052bbab600d8d67b.js", 
+		"URL=https://assets.adobedtm.com/a63ef04a8a06d4763abe9b28a8d967e7e749d199/s-code-contents-e955f87a74cd9baabe4f7178052bbab600d8d67b.js", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/x-javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t34.inf", 
+		LAST);
+
+	web_url("chevron-right.png", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/chevron-right.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t35.inf", 
+		LAST);
+
+	web_url("bg_slider-grey-arrow.gif", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_slider-grey-arrow.gif", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t36.inf", 
+		LAST);
+
+	web_url("bg_home-other-minlaw-websites.gif", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_home-other-minlaw-websites.gif", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t37.inf", 
+		LAST);
+
+	web_url("bg_top-nav-bullet.gif_2", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_top-nav-bullet.gif", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t38.inf", 
+		LAST);
+
+	web_add_header("Origin", 
+		"https://www.mlaw.gov.sg");
+
+	web_url("icomoon.eot", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/jslibs/notification/fonts/icomoon.eot?aue5ly", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/vnd.ms-fontobject", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t39.inf", 
+		LAST);
+
+	web_url("bg_arrow-red.png", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_arrow-red.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t40.inf", 
+		LAST);
+
+	web_url("bg_slider-right-arrow.png", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_slider-right-arrow.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t41.inf", 
+		LAST);
+
+	web_url("bg_home-latest-news.gif", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_home-latest-news.gif", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t42.inf", 
+		LAST);
+
+	web_url("chevron-left.png", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/chevron-left.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t43.inf", 
+		LAST);
+
+	web_url("bg_home-highlight.png", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_home-highlight.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t44.inf", 
+		LAST);
+
+	web_url("bg_slider-left-arrow.png", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_slider-left-arrow.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t45.inf", 
+		LAST);
+
+	web_url("bg_slide-indicator-on.png", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_slide-indicator-on.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t46.inf", 
+		LAST);
+
+	web_url("loadSource.js", 
+		"URL=https://va.ecitizen.gov.sg/CFP/VA/MOL/js/loadSource.js?_=1569316727011", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t47.inf", 
+		LAST);
+
+	web_url("print.css", 
+		"URL=https://va.ecitizen.gov.sg/CFP/VA/MOL/css/print.css", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=text/css", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t48.inf", 
+		LAST);
+
+	web_url("300lo.json", 
+		"URL=https://m.addthis.com/live/red_lojson/300lo.json?si=5d89df760c56e602&bkl=0&bl=1&pdt=8242&sid=5d89df760c56e602&pub=xa-4ffa38ac32e3b8e4&rev=v8.27.11-wp&ln=en&pc=men&cb=0&ab=-&dp=www.mlaw.gov.sg%3A443&dr=uat.mlaw.gov.sg%3A443&fp=minlaw%2Fen.html&fr=enquiry%2FOnlineEnquiryConfirmation.aspx%3Fcasenumber%3D1h8esM1hcQYuPjEiRItXeI3nbhJAVFHweqLYRWCObKE%253D%26createdate%3D9%252F24%252F2019%2B9%253A17%253A19%2BAM&of=1&pd=0&irt=0&vcl=0&md=0&ct=1&tct=0&abt=0&cdn=0&pi=1&rb=2&gen=100&chr=utf-8&colc="
+		"1569316727177&jsl=33&uvs=5d89df76c3c393fd000&skipb=1&callback=addthis.cbs.jsonp__81392655742144550", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t49.inf", 
+		LAST);
+
+	web_url("global_va.js", 
+		"URL=https://va.ecitizen.gov.sg/CFP/VA/global_va.js?_=1569316729032", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t50.inf", 
+		LAST);
+
+	web_url("jquery.scrollIntoView.js", 
+		"URL=https://va.ecitizen.gov.sg/CFP/VA/MOL/js/jquery.scrollIntoView.js?_=1569316732241", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t51.inf", 
+		LAST);
+
+	web_url("va_src.js", 
+		"URL=https://va.ecitizen.gov.sg/CFP/VA/MOL/js/va_src.js?_=1569316732245", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t52.inf", 
+		LAST);
+
+	web_url("_ate.track.config_resp", 
+		"URL=https://v1.addthisedge.com/live/boost/xa-4ffa38ac32e3b8e4/_ate.track.config_resp", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t53.inf", 
+		LAST);
+
+	web_url("s-code-contents-92266dd02c8c1cb0c91de826f3314ba9424fd0d5.js", 
+		"URL=https://assets.adobedtm.com/a63ef04a8a06d4763abe9b28a8d967e7e749d199/s-code-contents-92266dd02c8c1cb0c91de826f3314ba9424fd0d5.js", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/x-javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t54.inf", 
+		LAST);
+
+	web_url("bg_home-spotlight.gif", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_home-spotlight.gif", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t55.inf", 
+		LAST);
+
+	web_concurrent_end(NULL);
+
+	lr_think_time(11);
+
+	web_url("sh.f48a1a04fe8dbf021b4cda1d.html", 
+		"URL=https://s7.addthis.com/static/sh.f48a1a04fe8dbf021b4cda1d.html", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t56.inf", 
+		"Mode=HTML", 
+		LAST);
+
+	web_concurrent_start(NULL);
+
+	web_url("Main.css", 
+		"URL=https://va.ecitizen.gov.sg/CFP/VA/MOL/css/Main.css", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=text/css", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t57.inf", 
+		LAST);
+
+	web_url("ajax-loader.gif", 
+		"URL=https://va.ecitizen.gov.sg/CFP/VA/MOL/images/ajax-loader.gif", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t58.inf", 
+		LAST);
+
+	web_url("ask_cheryl_tab.png", 
+		"URL=https://va.ecitizen.gov.sg/CFP/VA/MOL/images/ask_cheryl_tab.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t59.inf", 
+		LAST);
+
+	web_concurrent_end(NULL);
+
+	web_url("sh.f48a1a04fe8dbf021b4cda1d.html_2", 
+		"URL=https://s7.addthis.com/static/sh.f48a1a04fe8dbf021b4cda1d.html", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t60.inf", 
+		"Mode=HTML", 
+		LAST);
+
+	web_concurrent_start(NULL);
+
+	web_url("bg_slide-indicator-normal.png", 
+		"URL=https://www.mlaw.gov.sg/etc/designs/minlaw/images/bg_slide-indicator-normal.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t61.inf", 
+		LAST);
+
+	web_url("neutral.png", 
+		"URL=https://va.ecitizen.gov.sg/CFP/VA/MOL/images/neutral.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t62.inf", 
+		LAST);
+
+	web_url("global_va.js_2", 
+		"URL=https://va.ecitizen.gov.sg/CFP/VA/global_va.js?_=1569316729031", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t63.inf", 
+		LAST);
+
+	web_url("ga.js", 
+		"URL=https://ssl.google-analytics.com/ga.js", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=text/javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t64.inf", 
+		LAST);
+
+	web_url("close.png", 
+		"URL=https://va.ecitizen.gov.sg/CFP/VA/MOL/images/close.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t65.inf", 
+		LAST);
+
+	web_concurrent_end(NULL);
+
+	web_add_cookie("__utma=142036334.465967074.1569316743.1569316743.1569316743.1; DOMAIN=www.mlaw.gov.sg");
+
+	web_add_cookie("__utmb=142036334.1.10.1569316743; DOMAIN=www.mlaw.gov.sg");
+
+	web_add_cookie("__utmc=142036334; DOMAIN=www.mlaw.gov.sg");
+
+	web_add_cookie("__utmz=142036334.1569316743.1.1.utmcsr=uat.mlaw.gov.sg|utmccn=(referral)|utmcmd=referral|utmcct=/eservices/enquiry/OnlineEnquiryConfirmation.aspx; DOMAIN=www.mlaw.gov.sg");
+
+	web_add_cookie("__utmt=1; DOMAIN=www.mlaw.gov.sg");
+
+	lr_think_time(5);
+
+	web_url("token.json", 
+		"URL=https://www.mlaw.gov.sg/libs/granite/csrf/token.json", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=", 
+		"Snapshot=t66.inf", 
+		"Mode=HTML", 
+		LAST);
+
+	web_concurrent_start(NULL);
+
+	web_url("__utm.gif", 
+		"URL=https://ssl.google-analytics.com/r/__utm.gif?utmwv=5.7.2&utms=1&utmn=1400782066&utmhn=www.mlaw.gov.sg&utmcs=utf-8&utmsr=1366x768&utmvp=820x452&utmsc=24-bit&utmul=en-us&utmje=1&utmfl=32.0%20r0&utmdt=Home%20%7C%20Ministry%20of%20Law&utmhid=354500620&utmr=https%3A%2F%2Fuat.mlaw.gov.sg%2Feservices%2Fenquiry%2FOnlineEnquiryConfirmation.aspx%3Fcasenumber%3D1h8esM1hcQYuPjEiRItXeI3nbhJAVFHweqLYRWCObKE%253D%26createdate%3D9%252F24%252F2019%2B9%253A17%253A19%2BAM&utmp=%2Fcontent%2Fminlaw%2Fen.html&utmht"
+		"=1569316742986&utmac=UA-10405444-1&utmcc=__utma%3D142036334.465967074.1569316743.1569316743.1569316743.1%3B%2B__utmz%3D142036334.1569316743.1.1.utmcsr%3Duat.mlaw.gov.sg%7Cutmccn%3D(referral)%7Cutmcmd%3Dreferral%7Cutmcct%3D%2Feservices%2Fenquiry%2FOnlineEnquiryConfirmation.aspx%3B&utmjid=216509951&utmredir=1&utmu=qAAAAAAAAAAAAAAAAAAAAAAE~", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t67.inf", 
+		LAST);
+
+	web_add_header("Origin", 
+		"https://www.mlaw.gov.sg");
+
+	web_custom_request("id", 
+		"URL=https://wogadobeanalytics.sc.omtrdc.net/id?d_visid_ver=2.4.0&d_fieldgroup=A&mcorgid=DF38E5285913269B0A495E5A%40AdobeOrg&mid=53959550619238182890224681282109406781&ts=1569316756710", 
+		"Method=GET", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/x-javascript", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t68.inf", 
+		"EncType=application/x-www-form-urlencoded", 
+		LAST);
+
+	web_concurrent_end(NULL);
+
+	web_add_header("Origin", 
+		"https://www.mlaw.gov.sg");
+
+	lr_think_time(26);
+
+	web_custom_request("id_2", 
+		"URL=https://dpm.demdex.net/id?d_visid_ver=2.4.0&d_fieldgroup=AAM&d_rtbd=json&d_ver=2&d_orgid=DF38E5285913269B0A495E5A%40AdobeOrg&d_nsid=0&d_mid=53959550619238182890224681282109406781&ts=1569316772323", 
+		"Method=GET", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=application/json", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t69.inf", 
+		"Mode=HTML", 
+		"EncType=application/x-www-form-urlencoded", 
+		LAST);
+
+	web_url("s74687082842159", 
+		"URL=https://wogadobeanalytics.sc.omtrdc.net/b/ss/wogaaprod,wogaamlawprod/1/JS-2.4.0-D7QN/s74687082842159?AQB=1&ndh=1&pf=1&t=24%2F8%2F2019%2017%3A19%3A38%202%20-480&D=D%3D&mid=53959550619238182890224681282109406781&aamlh=3&ce=UTF-8&ns=WoGAA&cdp=3&pageName=mlaw%3Acontent%2Fminlaw%2Fen.html&g=https%3A%2F%2Fwww.mlaw.gov.sg%2Fcontent%2Fminlaw%2Fen.html&r="
+		"https%3A%2F%2Fuat.mlaw.gov.sg%2Feservices%2Fenquiry%2FOnlineEnquiryConfirmation.aspx%3Fcasenumber%3D1h8esM1hcQYuPjEiRItXeI3nbhJAVFHweqLYRWCObKE%253D%26createdate%3D9%252F24%252F2019%2B9%253A17%253A19%2BAM&cc=SGD&ch=mlaw.gov.sg&server=mlaw.gov.sg&events=event3%3D618&aamb=j8Odv6LonN4r3an7LhD3WZrU1bUpAkFkkiY1ncBR96t2PTI&c1=D%3Dv1&v1=mlaw.gov.sg&h1=mlaw%7Ccontent%7Cminlaw%7Cen.html&c2=618&v2=mlaw%3Acontent%2Fminlaw%2Fen.html&c3=D%3Dv3&v3=www.mlaw.gov.sg%2Fcontent%2Fminlaw%2Fen.html&c4=D%3Dv14&v4="
+		"1569316778799&v5=17%3A00&v6=Tuesday&c7=D%3Dv15&v7=53959550619238182890224681282109406781&v10=mlaw.gov.sg&v15=mlaw%3Ahome%20%7C%20ministry%20of%20law&s=1366x768&c=24&j=1.6&v=Y&k=Y&bw=837&bh=452&mcorgid=DF38E5285913269B0A495E5A%40AdobeOrg&AQE=1", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t70.inf", 
+		LAST);
+
+	web_url("dest5.html", 
+		"URL=https://wogaa.demdex.net/dest5.html?d_nsid=0", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t71.inf", 
+		"Mode=HTML", 
+		LAST);
+
+	web_url("dd", 
+		"URL=https://cm.everesttech.net/cm/dd?d_uuid=53434149813971748520278076905349058376", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://www.mlaw.gov.sg/content/minlaw/en.html", 
+		"Snapshot=t72.inf", 
+		LAST);
+
+	lr_end_transaction("T06_SubmitEnquiry",LR_AUTO);
+
+	return 0;
+}
