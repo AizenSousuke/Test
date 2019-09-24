@@ -1,0 +1,228 @@
+Action()
+{
+
+	lr_start_transaction("T01_Launch");
+
+	web_set_sockets_option("SSL_VERSION", "TLS1.2");
+
+	web_url("exemption.aspx", 
+		"URL=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=", 
+		"Snapshot=t1.inf", 
+		"Mode=HTML", 
+		LAST);
+
+	web_url("WebResource.axd", 
+		"URL=https://uat.mlaw.gov.sg/eServices/LI/EMS/WebResource.axd?d=cYpBg1ZTBYibUY879wTM3r7a2zf_vSSB80nLIuHamXQSHXreza2w83adAPD1qc6LG6siWY0jMz22pgoxGK1QNvIF2HLA0Txx_zHgzxgvANw1&t=636396543000000000", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/x-javascript", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t2.inf", 
+		LAST);
+
+	web_add_cookie("SRCHUID=V=2&GUID=F29DCFA15F0844388051748AFF88BA6C&dmnchg=1; DOMAIN=iecvlist.microsoft.com");
+
+	web_add_cookie("SRCHD=AF=NOFORM; DOMAIN=iecvlist.microsoft.com");
+
+	web_add_cookie("MC1=GUID=b3fdf1e102534a0fbb57491ab8fcca46&HASH=b3fd&LV=201909&V=4&LU=1568949611444; DOMAIN=iecvlist.microsoft.com");
+
+	web_add_cookie("MUID=10BC21C89AC665AD0CC22C129B0D64D8; DOMAIN=iecvlist.microsoft.com");
+
+	web_add_cookie("SRCHUSR=DOB=20190917; DOMAIN=iecvlist.microsoft.com");
+
+	web_add_header("UA-CPU", 
+		"AMD64");
+
+	web_url("iecompatviewlist.xml", 
+		"URL=https://iecvlist.microsoft.com/IE11/1478281996/iecompatviewlist.xml", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/xml", 
+		"Referer=", 
+		"Snapshot=t3.inf", 
+		"Mode=HTML", 
+		LAST);
+
+	web_concurrent_start(NULL);
+
+	web_url("bg_page-inner.jpg", 
+		"URL=https://uat.mlaw.gov.sg/eservices/li/ems/Styles/images/bg_page-inner.jpg", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/jpeg", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t4.inf", 
+		LAST);
+
+	web_url("ScriptResource.axd", 
+		"URL=https://uat.mlaw.gov.sg/eServices/LI/EMS/ScriptResource.axd?d=YS5wiqfny9HsH-dJd6D4AgN4ZUX5kB4b14TcvKlyg-NPJpoFj5ZFjG4gyyI8Jte5QjYPMUohwZHU9kgErL4lGQa_5NXFnZJZDtzkq3XrApMjaXLv2cK_Xy4VaIlJ6hCYYUc51pa0uFe5aStRLrb8CQ2&t=63c1985", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/x-javascript", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t5.inf", 
+		LAST);
+
+	web_url("ScriptResource.axd_2", 
+		"URL=https://uat.mlaw.gov.sg/eServices/LI/EMS/ScriptResource.axd?d=WzFSQ9cYwJsC6GyLUewfycb-pAUwM28BHL0U-_lO1GloZMWNTKY0EOBavgUJ4sIpMLWP-btrh7kv_DT0fOLbO0e9I4urwsKYoIVq-gFlEwWBUiMbcU_XQsSttOANop3LoYwqibjro5D788rqr2UCGRryAhkkPKdf_4d1pZdUE001&t=620ef15f", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/x-javascript", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t6.inf", 
+		LAST);
+
+	web_url("ScriptResource.axd_3", 
+		"URL=https://uat.mlaw.gov.sg/eServices/LI/EMS/ScriptResource.axd?d=4MuxZCewGSGTzkng4pm7dH5YyXJJfxbQeMG-t-uzDnevNwoxSYb3YuR53oiS_WnKyylPpQp_uc-mIZsuGQ6NtOxrhIM8vSZVomdHQg-zeIw4TSs3HkKw_0FNYrdOdJ7zsokGcLPYekg94BOLGUnV_H5V-H5zLk2OWOsKJTqYiEIk007FbKqgp0GOLyI6xhvu0&t=620ef15f", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=application/x-javascript", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t7.inf", 
+		LAST);
+
+	web_url("ui-bg_flat_75_ffffff_40x100.png", 
+		"URL=https://uat.mlaw.gov.sg/eservices/li/ems/Styles/themes/blitzer/images/ui-bg_flat_75_ffffff_40x100.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t8.inf", 
+		LAST);
+
+	web_url("bg_top-nav-bullet.gif", 
+		"URL=https://uat.mlaw.gov.sg/eservices/li/ems/Styles/images/bg_top-nav-bullet.gif", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t9.inf", 
+		LAST);
+
+	web_url("PIE.htc", 
+		"URL=https://uat.mlaw.gov.sg/eservices/li/ems/Styles/PIE.htc", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=text/x-component", 
+		"Referer=", 
+		"Snapshot=t10.inf", 
+		LAST);
+
+	web_url("ui-bg_flat_65_ffffff_40x100.png", 
+		"URL=https://uat.mlaw.gov.sg/eservices/li/ems/Styles/themes/blitzer/images/ui-bg_flat_65_ffffff_40x100.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t11.inf", 
+		LAST);
+
+	web_url("control_imgs.png", 
+		"URL=https://uat.mlaw.gov.sg/eservices/li/ems/Styles/images/control_imgs.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t12.inf", 
+		LAST);
+
+	web_url("ui-icons_cc0000_256x240.png", 
+		"URL=https://uat.mlaw.gov.sg/eservices/li/ems/Styles/themes/blitzer/images/ui-icons_cc0000_256x240.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t13.inf", 
+		LAST);
+
+	web_url("WebResource.axd_2", 
+		"URL=https://uat.mlaw.gov.sg/eServices/LI/EMS/WebResource.axd?d=6j3PXJ6FrtrpgFt73xrIpRvJzZfW7gonWH4ZCHchQfOcWDpMb-uFPfAqXSjAGgB86nCJCN6Cgdd3aPbj7a8P8rOSgE_OkxUshBT6er3MEExT7C8cfDH63L2XP087IJbF0&t=636396543000000000", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t14.inf", 
+		LAST);
+
+	web_url("WebResource.axd_3", 
+		"URL=https://uat.mlaw.gov.sg/eServices/LI/EMS/WebResource.axd?d=7fDp68O6VbnDLYTJzNHHKjTyXVk7R5lLvqhwPMYOzg5Sr6p-yO947Z_ZxmQ528xrEqcnhEXTs8APhwlu5rrWiqtSHV5ZPP0dyyWDPvQGZY2KpZsQNlBFzX3ogiLnwrJy0&t=636396543000000000", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t15.inf", 
+		LAST);
+
+	web_url("WebResource.axd_4", 
+		"URL=https://uat.mlaw.gov.sg/eServices/LI/EMS/WebResource.axd?d=icieEUoaX22tlSeQv2TX2O9l1UWsLI-k8ZtI9YSSWG7Rm7fEaihnxk2QWjqZhAI6PFDLUKdDuQf9bLC5gjtxOv-TTKd9g-B8qtQrEOKwoX6_RB9l5KDojsw5J6UimtO30&t=636396543000000000", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t16.inf", 
+		LAST);
+
+	web_url("PIE.htc_2", 
+		"URL=https://uat.mlaw.gov.sg/eservices/li/ems/Styles/PIE.htc", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=text/x-component", 
+		"Referer=", 
+		"Snapshot=t17.inf", 
+		LAST);
+
+	web_url("ui-bg_dots-small_65_a6a6a6_2x2.png", 
+		"URL=https://uat.mlaw.gov.sg/eservices/li/ems/Styles/themes/blitzer/images/ui-bg_dots-small_65_a6a6a6_2x2.png", 
+		"TargetFrame=", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t18.inf", 
+		LAST);
+
+	web_concurrent_end(NULL);
+
+	web_add_header("X-Requested-With", 
+		"XMLHttpRequest");
+
+	lr_think_time(4);
+
+	web_custom_request("GetAppealContent.ashx", 
+		"URL=https://uat.mlaw.gov.sg/eservices/li/ems/application/ajax/GetAppealContent.ashx", 
+		"Method=POST", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=https://uat.mlaw.gov.sg/eservices/li/ems/application/exemption.aspx", 
+		"Snapshot=t19.inf", 
+		"Mode=HTML", 
+		"EncType=", 
+		LAST);
+
+	lr_end_transaction("T01_Launch",LR_AUTO);
+
+	web_add_header("UA-CPU", 
+		"AMD64");
+
+	lr_think_time(16);
+
+	web_url("gencssites.xml", 
+		"URL=http://pac.ncs.com.sg/gencssites.xml", 
+		"TargetFrame=", 
+		"Resource=0", 
+		"RecContentType=text/xml", 
+		"Referer=", 
+		"Snapshot=t20.inf", 
+		"Mode=HTML", 
+		LAST);
+
+	lr_start_transaction("T02_ClosePopup");
+
+	lr_end_transaction("T02_ClosePopup",LR_AUTO);
+
+	return 0;
+}
